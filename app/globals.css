@@ -1,0 +1,234 @@
+:root {
+  --navy: #0e253e;
+  --gold: #d4a82a;
+  --mist: #cee6e6;
+  --ivory: #f4f7f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--navy);
+  color: var(--mist);
+  font-family: var(--font-sans), "Montserrat", sans-serif;
+}
+
+.page {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 50% 42%,
+      rgba(14, 37, 62, 0.18) 0%,
+      rgba(8, 20, 38, 0.62) 58%,
+      rgba(5, 12, 24, 0.86) 100%
+    ),
+    url("/world-map.png") center / cover no-repeat;
+  z-index: 0;
+}
+
+.topbar,
+.hero,
+.contact {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 56px 0;
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  left: 56px;
+  right: 56px;
+  bottom: -18px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(206, 230, 230, 0.28),
+    rgba(206, 230, 230, 0.08) 70%,
+    transparent
+  );
+}
+
+.brand-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+
+.gold-rule {
+  width: 84px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 28px 24px 0;
+}
+
+.logo {
+  width: min(280px, 62vw);
+  height: auto;
+  margin: 0;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--font-serif), "Times New Roman", serif;
+  font-size: clamp(46px, 6.4vw, 80px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  color: var(--ivory);
+}
+
+.underline {
+  display: block;
+  width: 76px;
+  height: 2px;
+  margin: 22px auto 18px;
+  background: var(--gold);
+}
+
+.tagline {
+  margin: 0;
+  font-family: var(--font-serif), "Times New Roman", serif;
+  font-style: italic;
+  font-size: clamp(18px, 2.3vw, 28px);
+  font-weight: 400;
+  color: var(--mist);
+}
+
+.secondary {
+  margin: 20px 0 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px 28px;
+  padding: 8px 24px 28px;
+}
+
+.contact-item,
+.email {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--mist);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.contact-item:hover,
+.contact-item:focus-visible,
+.email:hover,
+.email:focus-visible {
+  color: var(--gold);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.socials {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(212, 168, 42, 0.6);
+  border-radius: 999px;
+  color: var(--mist);
+  background: rgba(14, 37, 62, 0.4);
+}
+
+.social svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    padding: 22px 20px 0;
+  }
+
+  .topbar::after {
+    left: 20px;
+    right: 20px;
+  }
+
+  .brand-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+  }
+
+  .gold-rule {
+    width: 36px;
+  }
+
+  .hero {
+    padding-top: 40px;
+  }
+
+  .logo {
+    width: min(240px, 74vw);
+  }
+
+  .secondary {
+    letter-spacing: 0.24em;
+  }
+
+  .contact {
+    gap: 14px 16px;
+    padding-bottom: 28px;
+  }
+}
