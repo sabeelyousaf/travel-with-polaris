@@ -1,5 +1,5 @@
-const email = "ceo@travelwithpolaris.com";
-const phone = "+1 (555) 014-0199";
+const email = "info@travelwithpolaris.com";
+const phone = "+92 329 5504444";
 
 function PhoneIcon() {
   return (
@@ -72,6 +72,28 @@ function LinkedInIcon() {
   );
 }
 
+function TikTokIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M14.6 3.4c.4 2.3 1.7 3.9 4 4.2v2.3a6.4 6.4 0 0 1-4-1.3v6.3c0 3.2-2.5 5.6-5.6 5.6A5.5 5.5 0 0 1 3.4 15c0-3 2.4-5.4 5.4-5.4.3 0 .7 0 1 .1v2.5a3 3 0 0 0-1-.2 2.9 2.9 0 0 0 0 5.8c1.6 0 2.8-1.2 2.8-2.9V3.4h2.9Z"
+      />
+    </svg>
+  );
+}
+
+function YouTubeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M21.6 8.2a2.7 2.7 0 0 0-1.9-1.9C18 5.8 12 5.8 12 5.8s-6 0-7.7.5a2.7 2.7 0 0 0-1.9 1.9C2 9.9 2 12.5 2 12.5s0 2.6.4 4.3a2.7 2.7 0 0 0 1.9 1.9c1.7.5 7.7.5 7.7.5s6 0 7.7-.5a2.7 2.7 0 0 0 1.9-1.9c.4-1.7.4-4.3.4-4.3s0-2.6-.4-4.3ZM10.2 15.4V9.6l5.1 2.9-5.1 2.9Z"
+      />
+    </svg>
+  );
+}
+
 function WhatsAppIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -84,10 +106,12 @@ function WhatsAppIcon() {
 }
 
 const socials = [
-  { label: "Instagram", icon: <InstagramIcon /> },
-  { label: "Facebook", icon: <FacebookIcon /> },
-  { label: "LinkedIn", icon: <LinkedInIcon /> },
-  { label: "WhatsApp", icon: <WhatsAppIcon /> },
+  { label: "Instagram", href: "https://www.instagram.com/travelwithpolaris", icon: <InstagramIcon /> },
+  { label: "Facebook", href: "https://www.facebook.com/travelwithpolaris", icon: <FacebookIcon /> },
+  { label: "TikTok", href: "https://www.tiktok.com/@travelwithpolaris", icon: <TikTokIcon /> },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/travelwithpolaris", icon: <LinkedInIcon /> },
+  { label: "YouTube", href: "https://www.youtube.com/@travelwithpolaris", icon: <YouTubeIcon /> },
+  { label: "WhatsApp", href: "https://wa.me/923295504444", icon: <WhatsAppIcon /> },
 ];
 
 export default function HomePage() {
@@ -97,7 +121,20 @@ export default function HomePage() {
 
       <header className="topbar">
         <p className="brand-label">Polaris Travel & Tours</p>
-        <span className="gold-rule" aria-hidden="true" />
+        <div className="socials">
+          {socials.map((social) => (
+            <a
+              className="social"
+              href={social.href}
+              key={social.label}
+              aria-label={social.label}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {social.icon}
+            </a>
+          ))}
+        </div>
       </header>
 
       <section className="hero">
@@ -123,13 +160,6 @@ export default function HomePage() {
           <MailIcon />
           {email}
         </a>
-        <div className="socials">
-          {socials.map((social) => (
-            <span className="social" role="img" aria-label={social.label} key={social.label}>
-              {social.icon}
-            </span>
-          ))}
-        </div>
       </footer>
     </main>
   );

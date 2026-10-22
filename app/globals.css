@@ -55,7 +55,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 12px 24px;
   padding: 26px 56px 0;
 }
 
@@ -81,13 +82,15 @@ body {
   letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--mist);
+  white-space: nowrap;
 }
 
-.gold-rule {
-  width: 84px;
-  height: 1px;
-  background: var(--gold);
+.socials {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 .hero {
@@ -106,7 +109,7 @@ body {
 }
 
 .hero h1 {
-  margin: 0;
+  margin: 18px 0 0;
   font-family: var(--font-serif), "Times New Roman", serif;
   font-size: clamp(46px, 6.4vw, 80px);
   font-weight: 400;
@@ -119,7 +122,7 @@ body {
   display: block;
   width: 76px;
   height: 2px;
-  margin: 22px auto 18px;
+  margin: 34px auto 22px;
   background: var(--gold);
 }
 
@@ -174,11 +177,6 @@ body {
   flex-shrink: 0;
 }
 
-.socials {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
 
 .social {
   width: 38px;
@@ -189,6 +187,13 @@ body {
   border-radius: 999px;
   color: var(--mist);
   background: rgba(14, 37, 62, 0.4);
+  text-decoration: none;
+}
+
+.social:hover,
+.social:focus-visible {
+  color: var(--gold);
+  border-color: var(--gold);
 }
 
 .social svg {
@@ -211,8 +216,9 @@ body {
     letter-spacing: 0.18em;
   }
 
-  .gold-rule {
-    width: 36px;
+  .social {
+    width: 32px;
+    height: 32px;
   }
 
   .hero {
